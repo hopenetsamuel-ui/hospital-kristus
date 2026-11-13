@@ -1,0 +1,17 @@
+{
+  "name": "hospital-kristus-clinic",
+  "version": "1.0.0",
+  "description": "Hospital Kristus Clinic Static Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "hospital",
+    "clinic",
+    "healthcare",
+    "website"
+  ],
+  "author": "Hospital Kristus Clinic",
+  "license": "ISC"
+}

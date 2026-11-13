@@ -1,0 +1,16 @@
+# Large binaries & tools
+cloudflared.exe
+*.exe
+
+# Node dependencies
+node_modules/
+package-lock.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
