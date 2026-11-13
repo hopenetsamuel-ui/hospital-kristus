@@ -400,4 +400,54 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   })();
+
+  // ========================================================
+  // 9. URGENT CALL 24/7 COLLAPSIBLE ACCORDION (CLICK & TOUCH)
+  // ========================================================
+  (function initUrgentDropdownToggle() {
+    const dropdown = document.querySelector('.urgent-call-dropdown');
+    const header = document.querySelector('.urgent-dropdown-header');
+    if (!dropdown || !header) return;
+
+    // Set accessibility attributes
+    header.setAttribute('role', 'button');
+    header.setAttribute('aria-expanded', 'false');
+    header.setAttribute('tabindex', '0');
+
+    function toggleDropdown(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      const isOpen = dropdown.classList.toggle('is-open');
+      header.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    header.addEventListener('click', toggleDropdown);
+
+    // Keyboard support (Enter & Space)
+    header.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleDropdown(e);
+      }
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!dropdown.contains(e.target) && dropdown.classList.contains('is-open')) {
+        dropdown.classList.remove('is-open');
+        header.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && dropdown.classList.contains('is-open')) {
+        dropdown.classList.remove('is-open');
+        header.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+
 });

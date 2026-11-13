@@ -1275,3 +1275,259 @@ a[class*="webflow-badge"],
     padding: 14px 18px 20px;
   }
 }
+
+
+/* ========================================================
+   HERO MULTI-SPECIALTY CARD & URGENT DROPDOWN CONTROLS
+   ======================================================== */
+
+/* Urgent Call Dropdown Collapse & Expand (Universal) */
+.urgent-dropdown-header {
+  cursor: pointer !important;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 6px !important;
+  transition: border-radius 0.3s ease, background-color 0.2s ease !important;
+}
+
+.urgent-call-dropdown.is-open .urgent-dropdown-header {
+  border-radius: 6px 6px 0 0 !important;
+}
+
+.icon-arrow-up {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transform: rotate(180deg); /* Points DOWN when collapsed to invite expansion */
+}
+
+.urgent-call-dropdown.is-open .icon-arrow-up {
+  transform: rotate(0deg) !important; /* Points UP when expanded */
+}
+
+/* Default collapsed state for dropdown body across all devices */
+.urgent-dropdown-body {
+  max-height: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, visibility 0.3s ease, padding 0.3s ease !important;
+  background-color: #FFF0F2 !important;
+}
+
+.urgent-call-dropdown.is-open .urgent-dropdown-body {
+  max-height: 450px !important;
+  height: auto !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  padding: 22px 20px !important;
+}
+
+/* ========================================================
+   MOBILE VIEW: HERO & MULTI-SPECIALTY CARD (20% HEIGHT)
+   ======================================================== */
+@media screen and (max-width: 767px) {
+  .page-title-home {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* Make hero container tall so hero image is prominently displayed (occupying 80%) */
+  .home-paralax {
+    min-height: 78vh !important;
+    min-height: 560px !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    padding-top: 0 !important;
+    padding-bottom: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .wrap-hero-background {
+    position: absolute !important;
+    inset: 0% !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .hero-image {
+    object-fit: cover !important;
+    object-position: center 25% !important; /* Highlights reception desk, doctors & patient */
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .container-home {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-top: auto !important;
+    z-index: 3 !important;
+    position: relative !important;
+  }
+
+  .specialties-cta {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .cta-info-card-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .cta-info-card-inner .space-30px {
+    display: none !important;
+  }
+
+  /* Multi-Specialty Card resized to occupy exactly ~20% of the hero image (560px * 20% = ~112px) */
+  .cta-info-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 114px !important;
+    padding: 8px 14px !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12) !important;
+    margin-bottom: 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  .heading-home.hero-title {
+    font-size: 1.05rem !important; /* ~16.5px */
+    line-height: 1.2 !important;
+    margin-top: 0 !important;
+    margin-bottom: 2px !important;
+    font-weight: 700 !important;
+    color: #12295F !important;
+    letter-spacing: -0.2px !important;
+  }
+
+  .text-regular-home {
+    font-size: 0.72rem !important; /* ~11.5px */
+    line-height: 1.25 !important;
+    margin-bottom: 6px !important;
+    color: #4A5568 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .fade-in-up-load-1 {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .fade-in-up-load-1 a.button {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 3px 12px !important;
+    font-size: 0.72rem !important;
+    height: 24px !important;
+    min-height: unset !important;
+    border-radius: 4px !important;
+  }
+
+  .home-img {
+    display: none !important;
+  }
+
+  /* Collapsed Urgent Call Widget on Mobile */
+  .urgent-call-widget {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: stretch !important;
+    margin-top: 0 !important;
+  }
+
+  .urgent-call-dropdown {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 14px rgba(230, 57, 70, 0.22) !important;
+  }
+
+  .urgent-dropdown-header {
+    padding: 9px 12px !important;
+    background-color: #E63946 !important;
+  }
+
+  .call-widget {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 0 !important;
+  }
+
+  .icon-wrapper-circle {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+  }
+
+  .icon-medical-star svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .sub-call {
+    font-size: 10.5px !important;
+    letter-spacing: 0.4px !important;
+    line-height: 1.1 !important;
+    opacity: 0.95 !important;
+  }
+
+  .text-call {
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+  }
+
+  .icon-arrow-up svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .urgent-dropdown-inner {
+    padding: 16px 14px !important;
+  }
+
+  .text-dropdown {
+    font-size: 0.8rem !important;
+    margin-bottom: 12px !important;
+  }
+
+  .warning-content-block {
+    margin-bottom: 12px !important;
+  }
+
+  .text-warning-bold, .text-warning {
+    font-size: 0.78rem !important;
+  }
+
+  .urgent-dropdown-inner a.button {
+    padding: 8px 16px !important;
+    font-size: 0.82rem !important;
+  }
+}
